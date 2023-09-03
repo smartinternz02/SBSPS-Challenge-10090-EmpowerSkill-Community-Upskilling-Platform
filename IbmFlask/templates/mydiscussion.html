@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Discussions</title>
+    <!-- Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .discussion {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .discussion:last-child {
+            border-bottom: none;
+        }
+
+        .discussion-title {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .author {
+            color: #666;
+        }
+
+        .date {
+            color: #888;
+        }
+
+        .discussion-form {
+            margin-top: 2rem;
+            border-top: 1px solid #ddd;
+            padding-top: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>My Discussions</h1>
+    </div>
+    <div class="container">
+        <div class="discussion-container">
+            <div class="discussion">
+                <div class="discussion-title">Getting Started with Web Development</div>
+                <div class="info">
+                    <div class="author">by John Doe</div>
+                    <div class="date">Posted on August 25, 2023</div>
+                </div>
+            </div>
+            <div class="discussion">
+                <div class="discussion-title">Best Practices for Responsive Design</div>
+                <div class="info">
+                    <div class="author">by Jane Smith</div>
+                    <div class="date">Posted on August 28, 2023</div>
+                </div>
+            </div>
+        </div>
+        <div class="discussion-form">
+            <h2>Post New Discussion</h2>
+            <form id="discussionForm">
+                <div class="form-group">
+                    <label class="form-label" for="title">Title:</label>
+                    <input class="form-input" type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="author">Author:</label>
+                    <input class="form-input" type="text" id="author" name="author" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="content">Content:</label>
+                    <textarea class="form-input" id="content" name="content" rows="4" required></textarea>
+                </div>
+                <button class="form-button" type="submit">Post Discussion</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('discussionForm');
+        const discussionContainer = document.querySelector('.discussion-container');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const content = document.getElementById('content').value;
+
+            const newDiscussion = document.createElement('div');
+            newDiscussion.className = 'discussion';
+            newDiscussion.innerHTML = `
+                <div class="discussion-title">${title}</div>
+                <div class="info">
+                    <div class="author">by ${author}</div>
+                    <div class="date">Posted on ${new Date().toLocaleDateString()}</div>
+                </div>
+            `;
+
+            discussionContainer.insertBefore(newDiscussion, discussionContainer.firstChild);
+            form.reset();
+        });
+    </script>
+</body>
+
+</html>

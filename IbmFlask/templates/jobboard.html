@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Job Board</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        #searchInput {
+            padding: 0.5rem;
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        #jobContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .job-card {
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            padding: 1rem;
+            width: calc(33.33% - 1rem);
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-dark text-white text-center py-4">
+        <h1>Job Board</h1>
+        <input type="text" id="searchInput" class="form-control w-75 mx-auto" placeholder="Search...">
+    </header>
+    <main id="jobContainer" class="container my-4">
+        <div class="row" id="jobRow"></div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Job Board. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js">
+    </script>
+    <script>
+        const jobData = [{
+                title: "Web Developer",
+                company: "ABC Inc.",
+                location: "City A",
+                experience: "2 years",
+                package: "$60,000 - $80,000"
+            },
+            {
+                title: "UI/UX Designer",
+                company: "XYZ Co.",
+                location: "City B",
+                experience: "3 years",
+                package: "$50,000 - $70,000"
+            },
+            {
+                title: "Data Scientist",
+                company: "DataTech",
+                location: "City C",
+                experience: "5 years",
+                package: "$80,000 - $100,000"
+            },
+            {
+                title: "Software Engineer",
+                company: "Tech Solutions",
+                location: "City D",
+                experience: "4 years",
+                package: "$70,000 - $90,000"
+            },
+            {
+                title: "Marketing Manager",
+                company: "Global Marketing",
+                location: "City E",
+                experience: "6 years",
+                package: "$75,000 - $95,000"
+            },
+            {
+                title: "Product Manager",
+                company: "Innovate Corp",
+                location: "City F",
+                experience: "7 years",
+                package: "$90,000 - $110,000"
+            }
+        ];
+
+        const jobContainer = document.getElementById("jobContainer");
+        const jobRow = document.getElementById("jobRow");
+        const searchInput = document.getElementById("searchInput");
+
+        function displayJobs(jobs) {
+            jobRow.innerHTML = "";
+            jobs.forEach(job => {
+                const jobCard = document.createElement("div");
+                jobCard.classList.add("col-lg-4", "col-md-6", "mb-4");
+                jobCard.innerHTML = `
+      <div class="card border-primary shadow">
+        <div class="card-body">
+          <h2 class="card-title">${job.title}</h2>
+          <p class="card-text">Company: ${job.company}</p>
+          <p class="card-text">Location: ${job.location}</p>
+          <p class="card-text">Experience: ${job.experience}</p>
+          <p class="card-text">Package: ${job.package}</p>
+          <button class="btn btn-primary apply-button">Apply</button>
+        </div>
+      </div>
+    `;
+                jobRow.appendChild(jobCard);
+            });
+        }
+
+        function handleApplyButtonClick() {
+            alert("Application submitted successfully!");
+        }
+
+        searchInput.addEventListener("input", event => {
+            const searchTerm = event.target.value.toLowerCase();
+            filterJobs(searchTerm);
+        });
+
+        function filterJobs(query) {
+            const filteredJobs = jobData.filter(job => {
+                const title = job.title.toLowerCase();
+                const company = job.company.toLowerCase();
+                const location = job.location.toLowerCase();
+                return title.includes(query) || company.includes(query) || location.includes(query);
+            });
+            displayJobs(filteredJobs);
+        }
+
+        // Initial display of all jobs
+        displayJobs(jobData);
+
+        // Add event listeners for Apply buttons
+        const applyButtons = document.querySelectorAll(".apply-button");
+        applyButtons.forEach(button => {
+            button.addEventListener("click", handleApplyButtonClick);
+        });
+    </script>
+
+
+</body>
+
+</html>
