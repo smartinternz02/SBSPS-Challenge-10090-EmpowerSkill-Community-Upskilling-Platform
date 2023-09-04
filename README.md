@@ -161,5 +161,5 @@ EmpowerSkill facilitates skill and knowledge exchange within a community:
 - [Credly Badge: Journey To Cloud:Envisioning Your Solution](https://www.credly.com/badges/6e1fc320-b9a7-49a9-8856-bc2d4cdb9394/public_url)
 - [Credly Badge: Getting Started With Enterprise Data Science](https://www.credly.com/badges/e336c217-fb06-4940-ae15-9a474f2ba697/public_url)
 - [Project Link](https://empowerskills-venkateswarlu2001-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/)
-- [GitHub Repository](https://github.com/yourusername/empower-skill)
+- [GitHub Repository](https://github.com/smartinternz02/SBSPS-Challenge-10090-EmpowerSkill-Community-Upskilling-Platform/tree/main)
 - [Live Demo](https://yt.openinapp.co/project-demo-link-EmpowerSkill-Community-Upskilling-Platform)
