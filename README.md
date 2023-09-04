@@ -147,7 +147,7 @@ EmpowerSkill facilitates skill and knowledge exchange within a community:
  
 ## Team Members:
  
-- [P. Venkateswarlu (Team Head)](https://mail.google.com/mail/u/0/?tab=rm&ogbl)
+- [P. Venkateswarlu (Team Head)](e.g.: 20471A04G1@nrtec.in)
 - [F. Manikanta](20471A0412@nrtec.in)
 - [P. Praveen](20471A0440@nrtec.in)
 - [U. Harikrishna](20471A0455@nrtec.in)
